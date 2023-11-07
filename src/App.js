@@ -1,5 +1,8 @@
 import './App.css';
-import { Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import CartExample from './components/CartExample';
+import AuthorizationExample from './components/AuthorizationExample';
+import NavigationBar from './components/NavigationBar';
 
 /**
  * App contains only routing links to examples.
@@ -9,8 +12,12 @@ function App() {
 
   return (
     <div>
-      <Link to={'/auth'}>Authorization example</Link><br/>
-      <Link to={'/cart'}>Shopping cart example</Link>
+      <NavigationBar/>
+      <Routes>
+        <Route path='/' element={<h1>Welcome!</h1>}/>
+        <Route path='/auth' element={<AuthorizationExample/>}/>
+        <Route path='/cart' element={<CartExample/>}/>
+      </Routes>
     </div>
   );
 }
